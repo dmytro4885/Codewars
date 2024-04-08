@@ -1,1 +1,8 @@
-
+def stringify(node):
+    result = ""
+    current = node
+    while current is not None:
+        result += str(current.data) + " -> "
+        current = current.next
+    result += "None"
+    return result
