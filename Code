@@ -1,0 +1,18 @@
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+def reverse(head):
+    # Base case: if the linked list is empty or has only one node
+    if head is None or head.next is None:
+        return head
+
+    # Recursive case: reverse the sublist starting from the second node
+    reversed_head = reverse(head.next)
+
+    # Reverse the pointers
+    head.next.next = head
+    head.next = None
+
+    return reversed_head
