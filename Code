@@ -1,22 +1,22 @@
 from preloaded import Node
 
-'''
-Node is defined in preloaded like this:
-
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-'''
+# class Node(object):
+#     """Node class for reference"""
+#     def __init__(self, data, next=None):
+#         self.data = data
+#         self.next = next
     
-def push(head, data):
-    new_node = Node(data)
-    new_node.next = head
-    return new_node
+def get_nth(node, index):
+    if not node:
+        raise Exception("List is empty")
 
-def build_one_two_three():
-    chained = None
-    chained = push(chained, 3)
-    chained = push(chained, 2)
-    chained = push(chained, 1)
-    return chained
+    current_index = 0
+    current_node = node
+
+    while current_node:
+        if current_index == index:
+            return current_node
+        current_index += 1
+        current_node = current_node.next
+
+    raise Exception("Index out of range")
